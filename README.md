@@ -1,8 +1,16 @@
 <div align="center">
 
-# Basic Task List
+# Simple Notepad App created using MAUI
 
-Practice 1
     
 </div>
+
+### Overview
+
+
+
+
+### Demo:
+
+
 
