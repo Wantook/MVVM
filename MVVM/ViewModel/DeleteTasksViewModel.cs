@@ -4,7 +4,6 @@ using MVVM.Model;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MVVM.ViewModel
 {
@@ -33,7 +32,7 @@ namespace MVVM.ViewModel
         public IRelayCommand LoadTasksCommand { get; }
         public IRelayCommand DeleteTaskCommand { get; }
 
-        private void LoadTasks()
+        public void LoadTasks()
         {
             Tasks.Clear();
             if (File.Exists(FilePath))
@@ -52,7 +51,7 @@ namespace MVVM.ViewModel
             {
                 Tasks.Remove(SelectedTask);
                 SaveTasks();
-                SelectedTask = null; // Clear selection
+                SelectedTask = null; 
             }
         }
 
