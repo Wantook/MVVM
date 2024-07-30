@@ -11,20 +11,25 @@
         <Entry
             Placeholder="Enter a new task"
             Text="{Binding NewTask}"
-            />
+            BackgroundColor="LightGray"
+            TextColor="Black" />
 
         <Button
             Text="Add Task"
             Command="{Binding AddTaskCommand}"
-            />
+            BackgroundColor="DodgerBlue"
+            TextColor="White" />
 
-        <ListView
-            ItemsSource="{Binding Tasks}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding TaskName}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Button
+            Text="View All Tasks"
+            Command="{Binding ViewAllTasksCommand}"
+            BackgroundColor="Green"
+            TextColor="White" />
+
+        <Button
+            Text="Delete Tasks"
+            Command="{Binding DeleteTasksCommand}"
+            BackgroundColor="Red"
+            TextColor="White" />
     </StackLayout>
 </ContentPage>

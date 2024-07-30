@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:MVVM.View"
@@ -11,4 +10,13 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
+    <ShellContent
+        Title="View All Tasks"
+        ContentTemplate="{DataTemplate local:ViewAllTasksPage}"
+        Route="ViewAllTasksPage" />
+
+    <ShellContent
+        Title="Delete Tasks"
+        ContentTemplate="{DataTemplate local:DeleteTasksPage}"
+        Route="DeleteTasksPage" />
 </Shell>
