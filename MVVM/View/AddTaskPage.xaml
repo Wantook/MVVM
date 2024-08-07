@@ -1,0 +1,29 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:MVVM.ViewModel"
+             x:Class="MVVM.View.AddTaskPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:AddTaskViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20">
+        <Entry
+            Placeholder="Task Title"
+            Text="{Binding TaskName}"
+            BackgroundColor="LightGray"
+            TextColor="Black" />
+
+        <Editor
+            Placeholder="Task Description"
+            Text="{Binding TaskDescription}"
+            BackgroundColor="LightGray"
+            TextColor="Black" />
+
+        <Button
+            Text="Save Task"
+            Command="{Binding SaveTaskCommand}"
+            BackgroundColor="DodgerBlue"
+            TextColor="White" />
+    </StackLayout>
+</ContentPage>

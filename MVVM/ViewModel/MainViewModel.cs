@@ -14,16 +14,19 @@ namespace MVVM.ViewModel
     public class MainViewModel : ObservableObject
     {
         private readonly string FilePath;
+        private readonly string DescriptionsFilePath;
 
         public MainViewModel()
         {
             FilePath = Path.Combine(FileSystem.Current.AppDataDirectory, "tasks.txt");
+            DescriptionsFilePath = Path.Combine(FileSystem.Current.AppDataDirectory, "task_descriptions.txt");
 
-            AddTaskCommand = new RelayCommand(AddTask);
+            AddTaskCommand = new AsyncRelayCommand(NavigateToAddTaskPage);
             DeleteTaskCommand = new RelayCommand<TaskModel>(DeleteTask);
             LoadTasksCommand = new RelayCommand(LoadTasks);
             ViewAllTasksCommand = new AsyncRelayCommand(NavigateToViewAllTasks);
             DeleteTasksCommand = new AsyncRelayCommand(NavigateToDeleteTasks);
+            NavigateToNoteDetailsCommand = new AsyncRelayCommand<TaskModel>(NavigateToNoteDetails);
 
             LoadTasks();
         }
@@ -37,20 +40,21 @@ namespace MVVM.ViewModel
 
         public ObservableCollection<TaskModel> Tasks { get; set; } = new ObservableCollection<TaskModel>();
 
-        public IRelayCommand AddTaskCommand { get; }
+        public TaskModel SelectedTask { get; set; }
+
+        public IAsyncRelayCommand AddTaskCommand { get; }
         public IRelayCommand<TaskModel> DeleteTaskCommand { get; }
         public IRelayCommand LoadTasksCommand { get; }
         public IAsyncRelayCommand ViewAllTasksCommand { get; }
         public IAsyncRelayCommand DeleteTasksCommand { get; }
+        public IAsyncRelayCommand<TaskModel> NavigateToNoteDetailsCommand { get; }
 
-        private void AddTask()
+        private async Task NavigateToAddTaskPage()
         {
-            if (!string.IsNullOrWhiteSpace(NewTask))
+            if (Shell.Current != null)
             {
-                var task = new TaskModel { TaskName = NewTask };
-                Tasks.Add(task);
-                SaveTasks();
-                NewTask = string.Empty;
+                await Shell.Current.GoToAsync(nameof(AddTaskPage));
+                LoadTasks(); 
             }
         }
 
@@ -60,6 +64,11 @@ namespace MVVM.ViewModel
             {
                 Tasks.Remove(task);
                 SaveTasks();
+
+                
+                var descriptions = File.Exists(DescriptionsFilePath) ? File.ReadAllLines(DescriptionsFilePath).ToList() : new List<string>();
+                descriptions.RemoveAll(d => d.StartsWith($"{task.TaskName}:"));
+                File.WriteAllLines(DescriptionsFilePath, descriptions);
             }
         }
 
@@ -80,6 +89,25 @@ namespace MVVM.ViewModel
         {
             var taskLines = Tasks.Select(t => t.TaskName).ToArray();
             File.WriteAllLines(FilePath, taskLines);
+        }
+
+        public async Task NavigateToNoteDetails(TaskModel task)
+        {
+            try
+            {
+                if (Shell.Current != null)
+                {
+                    await Shell.Current.GoToAsync($"{nameof(NoteDetailsPage)}?TaskName={task.TaskName}");
+                }
+                else
+                {
+                    Debug.WriteLine("Shell.Current is null.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error navigating to NoteDetailsPage: {ex.Message}");
+            }
         }
 
         private async Task NavigateToViewAllTasks()
@@ -119,6 +147,5 @@ namespace MVVM.ViewModel
                 Debug.WriteLine($"Error navigating to DeleteTasksPage: {ex.Message}");
             }
         }
-
     }
 }

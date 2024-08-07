@@ -9,6 +9,8 @@ namespace MVVM
             InitializeComponent();
             Routing.RegisterRoute(nameof(ViewAllTasksPage), typeof(ViewAllTasksPage));
             Routing.RegisterRoute(nameof(DeleteTasksPage), typeof(DeleteTasksPage));
+            Routing.RegisterRoute(nameof(NoteDetailsPage), typeof(NoteDetailsPage));
+            Routing.RegisterRoute(nameof(AddTaskPage), typeof(AddTaskPage));
         }
     }
 }

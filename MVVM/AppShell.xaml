@@ -19,4 +19,14 @@
         Title="Delete Tasks"
         ContentTemplate="{DataTemplate local:DeleteTasksPage}"
         Route="DeleteTasksPage" />
+
+    <ShellContent
+        Title="Note Details"
+        ContentTemplate="{DataTemplate local:NoteDetailsPage}"
+        Route="NoteDetailsPage" />
+
+    <ShellContent
+        Title="Add Task"
+        ContentTemplate="{DataTemplate local:AddTaskPage}"
+        Route="AddTaskPage" />
 </Shell>
