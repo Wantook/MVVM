@@ -16,16 +16,12 @@
 
 Created using .NET MAUI in an MVVM format. The UI was bad but don't worry, I will regularly update it.
 
-### Features
 
-* Add a Task
-* View the list of tasks added
-* Delete a Task
 
 ### Problem
 
-* Colors of both View Tasks and Delete Tasks change whenever pressed.
-* Bad UI
+* Fix the UI more
+* Add and Delete works. But will only show on the UI once I pressed the Add button again.
 
 
 ### Demo
