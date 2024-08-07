@@ -14,7 +14,7 @@
 
 ### Overview
 
-Created using .NET MAUI in an MVVM format. The UI was bad but don't worry, I will regularly update it.
+Created using .NET MAUI in an MVVM format. Very useless app tbh. But what I will learn from here, will be used for more complex apps.
 
 
 
