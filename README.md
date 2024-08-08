@@ -20,8 +20,8 @@ Created using .NET MAUI in an MVVM format. Very useless app tbh. But what I will
 
 ### Problem
 
-* Fix the UI more
-* Add and Delete works. But will only show on the UI once I pressed the Add button again.
+* Fix the UI more. Will add settings to change background theme
+
 
 
 ### Demo
