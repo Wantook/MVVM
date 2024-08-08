@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModel="clr-namespace:MVVM.ViewModel"
-             x:Class="MVVM.View.DeleteTasksPage">
+             x:Class="MVVM.View.DeleteTasksPage"
+             BackgroundColor="LightYellow">
+
     <ContentPage.BindingContext>
         <viewModel:DeleteTasksViewModel />
     </ContentPage.BindingContext>
@@ -10,21 +11,29 @@
     <StackLayout Padding="20">
         <Label Text="Tasks to Delete" 
                FontSize="24" 
-               HorizontalOptions="Center" />
+               HorizontalOptions="Center" 
+               TextColor="Black"
+               Margin="0,0,0,20"/>
 
         <ListView
             ItemsSource="{Binding Tasks}"
             SelectionMode="Single"
-            SelectedItem="{Binding SelectedTask}">
+            SelectedItem="{Binding SelectedTask}"
+            BackgroundColor="LightYellow"
+            Margin="0,0,0,10">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding TaskName}" />
+                    <TextCell Text="{Binding TaskName}" TextColor="Black" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
         <Button
             Text="Delete Selected Task"
-            Command="{Binding DeleteTaskCommand}" />
+            Command="{Binding DeleteTaskCommand}"
+            BackgroundColor="Red"
+            TextColor="White"
+            CornerRadius="10"
+            HeightRequest="50" />
     </StackLayout>
 </ContentPage>

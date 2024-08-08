@@ -1,7 +1,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModel="clr-namespace:MVVM.ViewModel"
-             x:Class="MVVM.View.NoteDetailsPage">
+             x:Class="MVVM.View.NoteDetailsPage"
+             BackgroundColor="LightYellow">
 
     <ContentPage.BindingContext>
         <viewModel:NoteDetailsViewModel />
@@ -13,24 +14,33 @@
             Text="{Binding Task.TaskName}"
             IsReadOnly="True"
             BackgroundColor="LightGray"
-            TextColor="Black" />
+            TextColor="Black"
+            HeightRequest="50"
+            Margin="0,0,0,10" />
 
         <Editor
             Placeholder="Enter task description"
             Text="{Binding TaskDescription}"
             BackgroundColor="LightGray"
-            TextColor="Black" />
+            TextColor="Black"
+            HeightRequest="150"
+            Margin="0,0,0,10" />
 
         <Button
             Text="Delete Task"
             Command="{Binding DeleteTaskCommand}"
             BackgroundColor="Red"
-            TextColor="White" />
+            TextColor="White"
+            CornerRadius="10"
+            HeightRequest="50"
+            Margin="0,0,0,10" />
 
         <Button
             Text="Save Description"
             Command="{Binding SaveDescriptionCommand}"
             BackgroundColor="DodgerBlue"
-            TextColor="White" />
+            TextColor="White"
+            CornerRadius="10"
+            HeightRequest="50" />
     </StackLayout>
 </ContentPage>
