@@ -31,7 +31,10 @@ Created using .NET MAUI in an MVVM format. Very useless app tbh. But what I will
 
 
 
-https://github.com/user-attachments/assets/b4583395-462f-4ef7-b776-f155c52f0fdc
+
+
+https://github.com/user-attachments/assets/f9b115f7-2821-46b2-a5d2-010f6ed7ad76
+
 
 
     
