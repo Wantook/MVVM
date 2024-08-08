@@ -8,7 +8,7 @@ namespace MVVM.View
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = new MainViewModel(); // Ensure the BindingContext is set to MainViewModel
+            BindingContext = new MainViewModel(); 
         }
 
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
