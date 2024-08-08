@@ -16,6 +16,7 @@ namespace MVVM.ViewModel
         private readonly string FilePath;
         private readonly string DescriptionsFilePath;
 
+        [Obsolete]
         public MainViewModel()
         {
             FilePath = Path.Combine(FileSystem.Current.AppDataDirectory, "tasks.txt");
@@ -54,35 +55,44 @@ namespace MVVM.ViewModel
             if (Shell.Current != null)
             {
                 await Shell.Current.GoToAsync(nameof(AddTaskPage));
-                LoadTasks(); 
             }
         }
 
+        [Obsolete]
         private void DeleteTask(TaskModel task)
         {
             if (task != null)
             {
-                Tasks.Remove(task);
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    Tasks.Remove(task);
+                });
+
                 SaveTasks();
 
-                
                 var descriptions = File.Exists(DescriptionsFilePath) ? File.ReadAllLines(DescriptionsFilePath).ToList() : new List<string>();
                 descriptions.RemoveAll(d => d.StartsWith($"{task.TaskName}:"));
                 File.WriteAllLines(DescriptionsFilePath, descriptions);
+
+                LoadTasks();
             }
         }
 
+        [Obsolete]
         public void LoadTasks()
         {
-            Tasks.Clear();
-            if (File.Exists(FilePath))
+            Device.BeginInvokeOnMainThread(() =>
             {
-                var taskLines = File.ReadAllLines(FilePath);
-                foreach (var line in taskLines)
+                Tasks.Clear();
+                if (File.Exists(FilePath))
                 {
-                    Tasks.Add(new TaskModel { TaskName = line });
+                    var taskLines = File.ReadAllLines(FilePath);
+                    foreach (var line in taskLines)
+                    {
+                        Tasks.Add(new TaskModel { TaskName = line });
+                    }
                 }
-            }
+            });
         }
 
         private void SaveTasks()

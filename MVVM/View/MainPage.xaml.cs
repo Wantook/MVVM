@@ -8,6 +8,7 @@ namespace MVVM.View
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new MainViewModel(); // Ensure the BindingContext is set to MainViewModel
         }
 
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -20,6 +21,13 @@ namespace MVVM.View
                     await viewModel.NavigateToNoteDetails(selectedTask);
                 }
             }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var viewModel = BindingContext as MainViewModel;
+            viewModel?.LoadTasks();
         }
     }
 }

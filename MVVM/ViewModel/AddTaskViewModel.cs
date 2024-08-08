@@ -41,17 +41,17 @@ namespace MVVM.ViewModel
         {
             if (!string.IsNullOrWhiteSpace(TaskName))
             {
-                
                 var tasks = File.Exists(FilePath) ? File.ReadAllLines(FilePath).ToList() : new List<string>();
                 tasks.Add(TaskName);
                 File.WriteAllLines(FilePath, tasks);
 
-                
                 var descriptions = File.Exists(DescriptionsFilePath) ? File.ReadAllLines(DescriptionsFilePath).ToList() : new List<string>();
                 descriptions.Add($"{TaskName}:{TaskDescription}");
                 File.WriteAllLines(DescriptionsFilePath, descriptions);
 
-                
+                var mainViewModel = Application.Current.MainPage.BindingContext as MainViewModel;
+                mainViewModel?.LoadTasks();
+
                 if (Shell.Current != null)
                 {
                     await Shell.Current.GoToAsync("..");

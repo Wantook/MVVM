@@ -4,6 +4,7 @@ using MVVM.Model;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using Microsoft.Maui.Controls;
 
 namespace MVVM.ViewModel
 {
@@ -12,6 +13,7 @@ namespace MVVM.ViewModel
         private readonly string FilePath;
         private TaskModel _selectedTask;
 
+        [Obsolete]
         public DeleteTasksViewModel()
         {
             FilePath = Path.Combine(FileSystem.Current.AppDataDirectory, "tasks.txt");
@@ -32,26 +34,38 @@ namespace MVVM.ViewModel
         public IRelayCommand LoadTasksCommand { get; }
         public IRelayCommand DeleteTaskCommand { get; }
 
+        [Obsolete]
         public void LoadTasks()
         {
-            Tasks.Clear();
-            if (File.Exists(FilePath))
+            Device.BeginInvokeOnMainThread(() =>
             {
-                var taskLines = File.ReadAllLines(FilePath);
-                foreach (var line in taskLines)
+                Tasks.Clear();
+                if (File.Exists(FilePath))
                 {
-                    Tasks.Add(new TaskModel { TaskName = line });
+                    var taskLines = File.ReadAllLines(FilePath);
+                    foreach (var line in taskLines)
+                    {
+                        Tasks.Add(new TaskModel { TaskName = line });
+                    }
                 }
-            }
+            });
         }
 
+        [Obsolete]
         private void DeleteTask()
         {
             if (SelectedTask != null)
             {
-                Tasks.Remove(SelectedTask);
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    Tasks.Remove(SelectedTask);
+                });
+
                 SaveTasks();
-                SelectedTask = null; 
+                SelectedTask = null;
+
+                var mainViewModel = Application.Current.MainPage.BindingContext as MainViewModel;
+                mainViewModel?.LoadTasks();
             }
         }
 
