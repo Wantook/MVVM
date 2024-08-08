@@ -21,6 +21,7 @@ Created using .NET MAUI in an MVVM format. Very useless app tbh. But what I will
 ### Problem
 
 * Fix the UI more. Will add settings to change background theme
+* Once deleted, will show "task deleted successfully"
 
 
 
