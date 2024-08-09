@@ -21,6 +21,7 @@ Created using .NET MAUI in an MVVM format. Very useless app tbh. But what I will
 ### Problem
 
 * Add a Setting to change theme styles
+* Will add a sticky note feature that will stick on your screen
 * Add an android version
 
 
