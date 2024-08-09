@@ -5,6 +5,8 @@ namespace MVVM.View
         public ViewAllTasksPage()
         {
             InitializeComponent();
+            WidthRequest = 300;
+            HeightRequest = 500;
         }
     }
 }

@@ -8,6 +8,8 @@ namespace MVVM.View
         public MainPage()
         {
             InitializeComponent();
+            WidthRequest = 300;
+            HeightRequest = 300;
             BindingContext = new MainViewModel(); 
         }
 

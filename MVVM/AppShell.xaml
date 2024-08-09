@@ -5,6 +5,9 @@
        Shell.FlyoutBehavior="Disabled"
        Title="MVVM">
 
+    
+
+
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"

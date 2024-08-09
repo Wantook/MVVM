@@ -9,6 +9,8 @@ namespace MVVM.View
         public NoteDetailsPage()
         {
             InitializeComponent();
+            WidthRequest = 300;
+            HeightRequest = 500;
         }
 
         public string TaskName

@@ -10,37 +10,26 @@
 
     <StackLayout Padding="20">
         <Entry
-            Placeholder="Task Name"
-            Text="{Binding Task.TaskName}"
-            IsReadOnly="True"
-            BackgroundColor="LightGray"
-            TextColor="Black"
-            HeightRequest="50"
-            Margin="0,0,0,10" />
+    Placeholder="Task Name"
+    Text="{Binding Task.TaskName}"
+    IsReadOnly="True"
+    Style="{StaticResource CustomEntry}" />
 
         <Editor
-            Placeholder="Enter task description"
-            Text="{Binding TaskDescription}"
-            BackgroundColor="LightGray"
-            TextColor="Black"
-            HeightRequest="150"
-            Margin="0,0,0,10" />
+    Placeholder="Enter task description"
+    Text="{Binding TaskDescription}"
+    Style="{StaticResource CustomEditor}" />
 
         <Button
-            Text="Delete Task"
-            Command="{Binding DeleteTaskCommand}"
-            BackgroundColor="Red"
-            TextColor="White"
-            CornerRadius="10"
-            HeightRequest="50"
-            Margin="0,0,0,10" />
+    Text="Delete Task"
+    Command="{Binding DeleteTaskCommand}"
+    Style="{StaticResource LightRedButton}" />
 
         <Button
-            Text="Save Description"
-            Command="{Binding SaveDescriptionCommand}"
-            BackgroundColor="DodgerBlue"
-            TextColor="White"
-            CornerRadius="10"
-            HeightRequest="50" />
+    Text="Save Description"
+    Command="{Binding SaveDescriptionCommand}"
+    Style="{StaticResource LightBlueButton}" />
+
+
     </StackLayout>
 </ContentPage>

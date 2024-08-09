@@ -7,6 +7,8 @@ namespace MVVM.View
         public AddTaskPage()
         {
             InitializeComponent();
+            WidthRequest = 300;
+            HeightRequest = 500;
         }
     }
 }

@@ -10,27 +10,19 @@
 
     <StackLayout Padding="20">
         <Entry
-            Placeholder="Task Title"
-            Text="{Binding TaskName}"
-            BackgroundColor="LightGray"
-            TextColor="Black"
-            HeightRequest="50"
-            Margin="0,0,0,10" />
+    Placeholder="Task Title"
+    Text="{Binding TaskName}"
+    Style="{StaticResource CustomEntry}" />
 
         <Editor
-            Placeholder="Task Description"
-            Text="{Binding TaskDescription}"
-            BackgroundColor="LightGray"
-            TextColor="Black"
-            HeightRequest="150"
-            Margin="0,0,0,10" />
+    Placeholder="Task Description"
+    Text="{Binding TaskDescription}"
+    Style="{StaticResource CustomEditor}" />
 
         <Button
-            Text="Save Task"
-            Command="{Binding SaveTaskCommand}"
-            BackgroundColor="DodgerBlue"
-            TextColor="White"
-            CornerRadius="10"
-            HeightRequest="50" />
+    Text="Save Task"
+    Command="{Binding SaveTaskCommand}"
+    Style="{StaticResource LightBlueButton}" />
+
     </StackLayout>
 </ContentPage>

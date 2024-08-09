@@ -8,6 +8,8 @@ namespace MVVM.View
         public DeleteTasksPage()
         {
             InitializeComponent();
+            WidthRequest = 300;
+            HeightRequest = 500;
         }
 
         protected override void OnAppearing()

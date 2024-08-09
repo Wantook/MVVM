@@ -9,11 +9,7 @@
     </ContentPage.BindingContext>
 
     <StackLayout Padding="20">
-        <Label Text="Tasks to Delete" 
-               FontSize="24" 
-               HorizontalOptions="Center" 
-               TextColor="Black"
-               Margin="0,0,0,20"/>
+        <Label Text="Tasks to Delete" Style="{StaticResource HeaderLabel}" />
 
         <ListView
             ItemsSource="{Binding Tasks}"
@@ -29,11 +25,8 @@
         </ListView>
 
         <Button
-            Text="Delete Selected Task"
-            Command="{Binding DeleteTaskCommand}"
-            BackgroundColor="Red"
-            TextColor="White"
-            CornerRadius="10"
-            HeightRequest="50" />
+    Text="Delete Selected Task"
+    Command="{Binding DeleteTaskCommand}"
+    Style="{StaticResource LightRedButton}" />
     </StackLayout>
 </ContentPage>
