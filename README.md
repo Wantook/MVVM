@@ -20,9 +20,8 @@ Created using .NET MAUI in an MVVM format. Very useless app tbh. But what I will
 
 ### Problem
 
-* Fix the UI more. Will add settings to change background theme
-* Once deleted, will show "task deleted successfully"
-* Will create a Phone Version
+* Add a Setting to change theme styles
+* Add an android version
 
 
 
@@ -31,11 +30,7 @@ Created using .NET MAUI in an MVVM format. Very useless app tbh. But what I will
 <div align="center">
 
 
-
-
-
-https://github.com/user-attachments/assets/f9b115f7-2821-46b2-a5d2-010f6ed7ad76
-
+https://github.com/user-attachments/assets/2724cd65-de4c-437c-8873-14dfe9950fcb
 
 
     
